@@ -39,11 +39,28 @@ min-above-min(L1, L2, N) :-
 
 jj(X, Y)  :-  X = Y.
 
-% [a, b, c] , a 
+% [2,e,3,d,4,c,5,b,6,a,7]  ,  d
+
+common-unique-elements-helper (L, ele, )
+
 common-unique-elements-helper (L, ele, List) :-
 											L = [A|B],
-											jj (A, ele),
-											common-unique-elements-helper(B, ele, List),
-											append()
+											jj(A, ele),
+											List = [ele | L].
 
-common-unique-elements(L1,L2,N)  :- N is 5.
+common-unique-elements-helper (L, ele, List) :-
+											L = [A|B],
+											/+ jj(A, ele),
+											common-unique-elements-helper(B, ele, List).
+
+common-unique-elements(L1,L2,N)  :-  
+
+
+
+
+
+
+
+
+
+
