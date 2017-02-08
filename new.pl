@@ -39,29 +39,42 @@ min-above-min(L1, L2, N) :-
 
 jj(X, Y)  :-  X = Y.
 
-% [2,e,3,d,4,c,5,b,6,a,7]  ,  d
-
-common-unique-elements-helper (L, ele, List) :-
+common-unique-elements-helper(L, ele, List) :-
 											L = [A|B],
 											is_list(A),
 											common-unique-elements-helper(A, ele, List1),
 											common-unique-elements-helper(B, ele, List2),
 											temp = [List1 | List2],
-											List [temp | ]
+											List = [temp | List].
 
-common-unique-elements-helper (L, ele, List) :-
+common-unique-elements-helper(L, ele, List) :-
 											L = [A|B],
-											number(A),
 											jj(A, ele),
-											List = [ele | L].
+											List = [ele | List].
 
-common-unique-elements-helper (L, ele, List) :-
+common-unique-elements-helper(L, ele, List) :-
 											L = [A|B],
-											\+number(A),
 											\+ jj(A, ele),
 											common-unique-elements-helper(B, ele, List).
 
+common-unique-elements([], L2, []).
+common-unique-elements(L1, [], []).
+common-unique-elements([], [], []).
+
+
 common-unique-elements(L1,L2,N)  :-  
+								L2 = [A|B],
+								\+ is_list(A),
+								common-unique-elements-helper(L1, A, N),
+								common-unique-elements(L1, B, N).
+
+common-unique-elements(L1,L2,N)  :-  
+								L2 = [A|B],
+								is_list(A),
+								common-unique-elements(L1, A, N1),
+								common-unique-elements(L1, B, N2),
+								append(N1, N2, N).
+								
 
 
 
