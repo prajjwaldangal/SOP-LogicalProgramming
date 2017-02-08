@@ -19,7 +19,13 @@ speed(chevy, 105).
 time(ford, 9).
 time(chevy, 21).
 
+parent(bob, pat).
+parent(bob, gre).
+parent(liz, pat).
+parent(herr, bob).
+parent(eiya, herr).
 
+offspring(X, Y) :-  parent(Y, Z), Z is X.
 
 
 
