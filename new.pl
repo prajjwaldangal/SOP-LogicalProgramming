@@ -11,6 +11,7 @@ sum-up-numbers-simple(L, N)  :-
 
 % L1 -> [100, 300, 200],      L2 -> [300, 100, 200, a]
 
+/*
 min([],Y)  :-  Y.
 min(X,Y,X) :-  X < Y.
 min(X,Y,Y) :-  Y < X.			
@@ -34,12 +35,15 @@ min-above-min(L1, L2, N) :-
 						min(M, M2, M2),
 						% you may need to make a delete function
 						min-above-min
+*/
 
+jj(X, Y)  :-  X = Y.
 
-isEqual (X, Y, Z)  :-  
-
+% [a, b, c] , a 
 common-unique-elements-helper (L, ele, List) :-
 											L = [A|B],
+											jj (A, ele),
+											common-unique-elements-helper(B, ele, List),
+											append()
 
-
-common-unique-elements(L1,L2,N)  :-
+common-unique-elements(L1,L2,N)  :- N is 5.
