@@ -20,36 +20,3 @@ sum-up-numbers-general(L, N) :-
 								sum-up-numbers-general(A, N1), 
 								sum-up-numbers-general(B, N2),
 								N is N1 + N2.
-
-?- sum-up-numbers-general( [ [ [ 200, 100], [100] ], a, b, 100], 500).
-true .
-
-?- sum-up-numbers-general( [], 0).
-true .
-
-?- sum-up-numbers-general( [100], 100).
-true .
-
-?- sum-up-numbers-general( [100, 200], 300).
-true .
-
-?- sum-up-numbers-general( [a], 0).
-true .
-
-?- sum-up-numbers-general( [a, 100, b, 200, c, 300, d], 600).
-true .
-
-?- sum-up-numbers-general( [[]], 0).
-true .
-
-?- sum-up-numbers-general( [[100]], 100).
-true .
-
-?- sum-up-numbers-general( [100, [200]], 300).
-true .
-
-?- sum-up-numbers-general( [a, 100, b, [200], c, 300, d], 600).
-true .
-
-?- sum-up-numbers-general( [a, 100, [ [ b, [ [200], c ] ], 300, d]], 600).
-true .
