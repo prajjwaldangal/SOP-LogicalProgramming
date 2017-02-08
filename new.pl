@@ -16,6 +16,15 @@ min([],Y)  :-  Y.
 min(X,Y,X) :-  X < Y.
 min(X,Y,Y) :-  Y < X.
 
+find-min(L,M) :-
+			L = [A|B],
+			B = [C|D],
+			number(A),
+			find-min(B, )
+				
+
 min-above-min(L1, L2, N) :- 
+						find-min(L2, M),
+						% take M 
 						L2 = [A|B],
-						number(A).
+						number(A)
