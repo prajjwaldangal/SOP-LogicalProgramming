@@ -36,6 +36,10 @@ min-above-min(L1, L2, N) :-
 						min-above-min
 
 
-common-unique-elements-helper
+isEqual (X, Y, Z)  :-  
+
+common-unique-elements-helper (L, ele, List) :-
+											L = [A|B],
+
 
 common-unique-elements(L1,L2,N)  :-
