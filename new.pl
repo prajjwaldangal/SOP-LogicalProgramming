@@ -38,7 +38,7 @@ sum-up-numbers-general(L, N) :-
 
 
 
-% Ques 3:
+/*% Ques 3:
 min([],Y)  :-  Y.
 min(X,Y,X) :-  X < Y.
 min(X,Y,Y) :-  Y < X.			
@@ -63,23 +63,11 @@ min-above-min(L1, L2, N) :-
 						% you may need to make a delete function
 						% min-above-min
 
+*/
+
 
 
 % Ques 4:
-
-jj(X, Y)  :-  X = Y.
-
-% helper case for when ele is found
-common-unique-elements-helper(L, ele, List) :-
-											L = [A|B],
-											jj(A, ele),
-											List = [ele | List].
-
-% helper case for when not found
-common-unique-elements-helper(L, ele, List) :-
-											L = [A|B],
-											\+ jj(A, ele),
-											common-unique-elements-helper(B, ele, List).
 
 common-unique-elements([], L2, []).
 common-unique-elements(L1, [], []).
@@ -89,7 +77,8 @@ common-unique-elements([], [], []).
 common-unique-elements(L1,L2,N)  :-  
 								L2 = [A|B],
 								\+ is_list(A),
-								common-unique-elements-helper(L1, A, N),
+								member(A, L1),
+								append(N, [A], N),
 								common-unique-elements(L1, B, N).
 
 common-unique-elements(L1,L2,N)  :-  
